@@ -1,0 +1,68 @@
+.auth_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.auth_logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.auth_box {
+  width: 350px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.auth_box h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.auth_input {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth_input label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.auth_input input {
+  padding: 8px;
+  border: 1px solid #888;
+  border-radius: 3px;
+}
+
+.auth_btn {
+  width: 100%;
+  padding: 10px;
+  background: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.auth_create_btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #e7e9ec;
+  border: 1px solid #adb1b8;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.auth_text {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #555;
+}

@@ -1,0 +1,146 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background: #eaeded;
+  min-height: 100vh;
+  margin-top: 125px;
+}
+
+.newadjusted{
+    margin-top: -125px;
+    margin-right: 50px;
+}
+.cart_container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  gap: 20px;
+}
+
+/* LEFT SIDE */
+.left {
+  flex: 0.7;
+  background: white;
+  padding: 20px;
+}
+
+.left h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.left h3 {
+  font-size: 18px;
+  margin-top: 5px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.left p{
+    margin-top: 20px;
+    color: hsl(246, 92%, 50%);
+}
+
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  gap: 10px;
+}
+
+.cart_controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart_controls button {
+  background: #f0c14b;
+  border: 1px solid #a88734;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.cart_controls button:hover {
+  background: #ddb347;
+}
+
+.cart_controls span {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.remove_btn {
+  background: #f3f3f3 !important;
+  border: 1px solid #aaa !important;
+  padding: 6px 10px;
+  color: black;
+}
+
+.remove_btn:hover {
+  background: #e2e2e2 !important;
+}
+
+/* RIGHT SIDE – SUBTOTAL BOX */
+.right {
+  flex: 0.3;
+  
+}
+
+.subtotal_box {
+  background: white;
+  padding: 20px;
+  height: fit-content;
+  border: 1px solid #ddd;
+  position: fixed;
+}
+
+.subtotal_box p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.subtotal_box strong {
+  font-size: 20px;
+}
+
+.subtotal_box small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.checkout_btn {
+  display: block;
+  background: #f0c14b;
+  border: 1px solid #a88734;
+  padding: 10px 15px;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.checkout_btn:hover {
+  background: #ddb347;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cart_container {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+  }
+}
