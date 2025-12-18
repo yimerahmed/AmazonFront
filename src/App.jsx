@@ -13,8 +13,16 @@ import "./App.css";
 import { DataContext } from "./Context/DataContext"; // make sure path is correct
 import { auth } from "./Pages/Utility/firebase";
 import { actionTypes } from "./Pages/Utility/actionType"; // assuming your Type constants are exported here
+import { CheckoutProvider } from "@stripe/react-stripe-js/checkout";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+
 
 function App() {
+  const stripePromise = loadStripe(
+    "pk_test_51SdWZvHppCHWtcrQrX6Of6bOD6Y7rrh4wnxYu2AdeIsiGCa6RZGkMZzxTxSC01EOSfYMU7pnRHhtQaOkHR4A15EE00irz027HT"
+  );
   const [{ user }, dispatch] = useContext(DataContext);
 
   useEffect(() => {
@@ -41,7 +49,14 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/payments" element={<Payment />} />
+        <Route
+          path="/payment"
+          element={
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          }
+        />
         <Route path="/orders" element={<Orders />} />
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
