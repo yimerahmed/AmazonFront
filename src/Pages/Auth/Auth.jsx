@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import amazonLogo from "../../assets/AmazonLogoSignIn.png";
 import Classes from "./Signup.module.css";
 import { auth } from "../Utility/firebase";
@@ -19,7 +20,7 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const navStateData = useLocation();
   const [loading, setLoading] = useState({
     signIn: false,
     signUp: false,
@@ -41,7 +42,7 @@ const Auth = () => {
           });
 
           setLoading({ ...loading, signIn: false });
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           setError(err.message);
@@ -61,7 +62,7 @@ const Auth = () => {
           });
 
           setLoading({ ...loading, signUp: false });
-          navigate("/");
+          navigate(navStateData?.state?.redirect || "/");
         })
         .catch((err) => {
           setError(err.message);
@@ -79,6 +80,19 @@ const Auth = () => {
 
       <div className={Classes.auth_box}>
         <h1>Sign in</h1>
+        {navStateData?.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateData.state.msg}{" "}
+            {/* ✅ Use curly braces to render variable */}
+          </small>
+        )}
 
         {error && <p className={Classes.error}>{error}</p>}
 
