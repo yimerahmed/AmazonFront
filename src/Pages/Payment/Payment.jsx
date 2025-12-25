@@ -57,10 +57,17 @@ const Payment = () => {
       console.log("Creating payment intent for amount:", total * 100);
 
       // 1️⃣ Get client secret from Firebase Cloud Function
-      const response = await axiosInstance.post("/payment/create", {
-        total: Math.round(total * 100), // Amount in cents
-        currency: "usd",
-      });
+      // const response = await axiosInstance.post("/payment/create", {
+      //   total: Math.round(total * 100), // Amount in cents
+      //   currency: "usd",
+      // });
+      // REPLACE WITH:
+      const response = await axiosInstance.post(
+        `/payment/create?total=${Math.round(total * 100)}`,
+        {
+          currency: "usd",
+        }
+      );
 
       console.log("Payment intent response:", response.data);
 
