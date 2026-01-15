@@ -1,9 +1,12 @@
-.category{
+/* .category{
     height: 350px;
     width: 350px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0,0, 0.2);
+     flex: 1;
+    min-width: 250px;
 }
+
 
 .category img{
     width: 100%;
@@ -26,10 +29,10 @@
     font-size: 12px;
     font-weight: bold;
     color: rgb(9, 132, 209);
-}
+} */
 
 
-.category_container {
+/* .category_container {
     position: relative;
     margin-top: -18%;
     display: grid;
@@ -39,4 +42,95 @@
     margin-right: auto;
     margin-left: auto;
     place-items: center;
+} */
+
+/* .category_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1600px;
+    margin: 0 auto;
+} */
+
+
+/* ===============================
+   CATEGORY CONTAINER
+================================ */
+.category_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
 }
+
+/* ===============================
+   CATEGORY CARD
+================================ */
+.category {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    width: calc(25% - 22.5px);   /* 4 per row (desktop) */
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+/* ===============================
+   CATEGORY IMAGE
+================================ */
+.category img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+
+/* ===============================
+   TEXT STYLING
+================================ */
+.category a {
+    text-decoration: none;
+    color: rgb(35, 35, 35);
+}
+
+.category h2,
+.category p {
+    padding: 5px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.category p {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(9, 132, 209);
+}
+
+
+/* ===============================
+   TABLET VIEW
+================================ */
+@media (max-width: 1024px) {
+    .category {
+        width: calc(50% - 15px);
+    }
+}
+
+
+/* ===============================
+   MOBILE VIEW
+================================ */
+@media (max-width: 600px) {
+    .category {
+        width: 100%;
+    }
+}
+

@@ -5,142 +5,118 @@
   padding: 20px 0;
   background: #eaeded;
   min-height: 100vh;
-  margin-top: 125px;
+  margin-top: 100px;
 }
 
-.newadjusted{
-    margin-top: -125px;
-    margin-right: 50px;
-}
 .cart_container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1350px;
   display: flex;
+  align-items: flex-start;
   gap: 20px;
 }
 
 /* LEFT SIDE */
 .left {
-  flex: 0.7;
+  flex: 0.8;
   background: white;
   padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .left h2 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 500;
   margin-bottom: 5px;
 }
 
-.left h3 {
-  font-size: 18px;
-  margin-top: 5px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.left p{
-    margin-top: 20px;
-    color: hsl(246, 92%, 50%);
-}
-
+/* SMART ITEM ROW LAYOUT */
 .cart_item {
   display: flex;
+  align-items: center; 
   justify-content: space-between;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   padding: 15px 0;
-  gap: 10px;
 }
 
+.newadjusted {
+  flex: 1; /* Pushes controls to the end */
+  /* display: flex; */
+}
+
+/* QUANTITY CONTROLS (Aligned with Capture.PNG2.PNG) */
 .cart_controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  /* Narrow fixed width to prevent stretching */
+  width: 50px; 
+  min-width: 50px; 
+  margin-left: 15px;
 }
 
 .cart_controls button {
   background: #f0c14b;
   border: 1px solid #a88734;
-  padding: 6px 10px;
+  /* Specific square dimensions for the arrows */
+  width: 30px; 
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 3px;
-  transition: 0.2s;
+  border-radius: 4px;
 }
 
 .cart_controls button:hover {
-  background: #ddb347;
+  background: #f7ca00;
 }
 
+/* Styled Remove Button from Capture.PNG3.PNG */
+.cart_controls button:last-of-type {
+  width: 60px; /* Smallest width to fit the word 'Remove' */
+  height: auto;
+  padding: 4px 0;
+  margin-top: 5px;
+  font-size: 11px;
+  background: #f0c14b;
+}
 .cart_controls span {
-  font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
 }
 
-.remove_btn {
-  background: #f3f3f3 !important;
-  border: 1px solid #aaa !important;
-  padding: 6px 10px;
-  color: black;
-}
-
-.remove_btn:hover {
-  background: #e2e2e2 !important;
-}
-
-/* RIGHT SIDE – SUBTOTAL BOX */
+/* RIGHT SIDE – SUB-TOTAL BOX */
 .right {
-  flex: 0.3;
-  
+  flex: 0.25;
+  min-width: 280px;
+  position: sticky;
+  top: 125px;
 }
 
 .subtotal_box {
   background: white;
   padding: 20px;
-  height: fit-content;
   border: 1px solid #ddd;
-  position: fixed;
+  border-radius: 4px;
 }
 
 .subtotal_box p {
   font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.subtotal_box strong {
-  font-size: 20px;
-}
-
-.subtotal_box small {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .checkout_btn {
   display: block;
   background: #f0c14b;
   border: 1px solid #a88734;
-  padding: 10px 15px;
+  padding: 10px;
   text-align: center;
-  color: black;
-  font-size: 16px;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.checkout_btn:hover {
-  background: #ddb347;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .cart_container {
-    flex-direction: column;
-  }
-
-  .left,
-  .right {
-    width: 100%;
-  }
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 8px; /* Matching modern Amazon UI */
+  font-weight: 500;
 }

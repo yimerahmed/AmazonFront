@@ -1,185 +1,264 @@
-
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box; /* Essential for responsive sizing */
 }
-.outer_wrapper{
+
+.outer_wrapper {
     position: fixed;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
-.header_wrapper{
+
+.header_wrapper {
     background: #FF6200;
-    padding: 5px;
+    padding: 5px 10px;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    height: 70px;
-    z-index: 1000;
-    
-}
-
-.left_wrapper{
-    /* max-width: 250px; */
-    width: 20%;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+    gap: 10px;
+    min-height: 60px;
+    flex-wrap: nowrap; /* Keep items in one line for desktop */
 }
 
-.left_wrapper img{
-    width: 80%;
-    margin-left: 20px;
-    vertical-align: middle;
+/* ===============================
+   LEFT SECTION (Logo & Delivery)
+================================ */
+.left_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0; /* Prevents logo from squishing */
+}
+
+.left_wrapper img {
+    width: 90px; /* Slightly smaller for better mobile fit */
     padding-top: 5px;
 }
 
-.map_icon{
+.map_icon {
     color: white;
+    font-size: 18px;
 }
 
-.deliver_wrapper{
+.deliver_wrapper {
     display: flex;
-   justify-content: center;
-   flex-direction: column;
-   align-items: center;
-    /* gap: 30px; */
-    padding: 5px;
+    flex-direction: column;
+    color: white;
+    cursor: pointer;
+}
+
+.deliver_wrapper p {
+    font-size: 11px;
+    margin: 0;
+}
+
+.deliver_wrapper span {
+    font-size: 13px;
     font-weight: bold;
-    color: white;
-}
-.deliver_wrapper p{
-    font-size: 10px;
-    width: 50px;
 }
 
-.search_wrapper{
+/* ===============================
+   SEARCH BAR (Center)
+================================ */
+.search_wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1; /* Grows to fill available space */
+    height: 40px;
+    border-radius: 4px;
     overflow: hidden;
-    flex: 1;
-    /* width: 100%; */
-    width: 50%;
+    min-width: 150px; /* Ensures search bar doesn't disappear */
 }
 
-.search_wrapper select, .search_wrapper input{
-    outline: 1px solid gray;
-    padding: 10px;
-    font-weight: bold;
-}
-.search_wrapper input{
-    background-color: white;
-    /* color: white; */
-}
-.search_wrapper select{
+.search_wrapper select {
+    background-color: #f3f3f3;
     border: none;
-    background-color: rgb(228, 216, 216);
-    width: 25%;
+    padding: 0 5px;
+    width: 50px;
+    cursor: pointer;
 }
 
-.search_wrapper input{
+.search_wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 10px;
     width: 100%;
-    border: 1px solid white;
-    /* margin-right: -2px; */
-    margin-right: 2px;
 }
 
-.search_wrapper:focus-within{
-    border: 2px solid rgb(235, 161, 173);
-}
-.search_icon{
-    background-color: #a9176f;
-    padding: 5px;
-    color: white;
-}
-.right_wrapper{
-    /* max-width: 450px; */
-    width: 30%;
+.search_icon {
+    background-color: #febd69; /* Amazon Yellow icon color */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
+    justify-content: center;
+    padding: 0 10px;
+    color: #333;
+    cursor: pointer;
 }
 
-.right_wrapper a{
+/* ===============================
+   RIGHT SECTION (Nav Items)
+================================ */
+.right_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.right_wrapper a {
     color: white;
     text-decoration: none;
-
-}
-
-
-/* .right_wrapper img{
-    width: 10px;
-} */
-
-
-
-.right_wrapper p{
-    font-size: 10px;
-}
-
-
-.language{
-    width: 100px;
     display: flex;
-    padding: 10px;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid transparent;
 }
 
-.language select{
-    color: white;
+.right_wrapper a:hover {
+    border: 1px solid white;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.language img {
+    width: 18px;
+}
+
+.language select {
+    background: transparent;
     border: none;
-    background-color: #ff6200;
-    font-weight: 700;
-    width: 50px;
-}
-.language img{
-    width: 20%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.cart{
+/* ===============================
+   CART (Icon & Count)
+================================ */
+.cart {
     position: relative;
-}
-.cart span{
-    position: absolute;
-    right: 10px;
-    top: -10px;
+    display: flex;
+    flex-direction: row !important;
+    align-items: flex-end !important;
 }
 
-.cart .cart_Text{
-    top: 15px;
-    right: -20px;
-    font-size: 12px;
+.cart span:first-of-type {
+    position: absolute;
+    top: -2px;
+    left: 15px; /* Centers count on the cart icon */
+
+    color: black; /* Bright Amazon Orange/Gold */
+    font-size: 13px; /* Larger font for readability */
+    font-weight: 800; /* Extra bold */
+}
+
+.cart_Text {
+    margin-left: 2px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ===============================
+   RESPONSIVE LOGIC (The Smart Part)
+================================ */
+
+@media (max-width: 768px) {
+    .header_wrapper {
+        flex-wrap: wrap; /* Allows search bar to move to second line if needed */
+        height: auto;
+        padding-bottom: 8px;
+    }
+   
+
+    /* Hide delivery and language on small tablets to save space */
+    .deliver_wrapper, .language, .map_icon {
+        display: none;
+    }
+
+    .search_wrapper {
+        order: 3; /* Moves search bar below Logo and Cart */
+        width: 100%;
+        margin-top: 5px;
+        flex: 0 0 100%; /* Forces search bar to take 100% width on new line */
+    }
+}
+
+@media (max-width: 480px) {
+    .left_wrapper img {
+        width: 75px;
+    }
+
+    .right_wrapper span, .right_wrapper p {
+        font-size: 11px;
+    }
+
+    /* Keep the cart text hidden to ensure the icon is visible */
+    .cart_Text {
+        display: none;
+    }
     
 }
-
-.left_wrapper a:hover,
-.search_wrapper a:hover,.right_wrapper a:hover {
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-
-/* lower header */
-.lower_Header{
-    width: 100%;
-    background-color: #e4691c;
-    padding: 3px;
-   
-}
-.lower_Header ul{
+/* ===============================
+   LOWER HEADER (Today's Deals, etc.)
+================================ */
+.lower_Header {
+    background-color: #232f3e; /* Darker navy blue standard for Amazon */
+    color: white;
+    height: 39px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.lower_Header ul {
+    display: flex;
     align-items: center;
     list-style: none;
-    margin-left: 20px;
-    width: 50%;
-    color: white;
-    font-weight: 500;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
 }
 
-.lower_Header ul li:first-child {
+.lower_Header li {
     display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Hover effect matches the top header links */
+.lower_Header li:hover {
+    border: 1px solid white;
+    border-radius: 2px;
+}
+
+/* Specifically styling the "All" menu icon and text */
+.lower_Header li:first-child {
+    font-weight: 700;
+    gap: 3px;
+}
+
+.lower_Header li svg {
+    font-size: 22px;
+}
+
+/* ===============================
+   RESPONSIVE HIDING
+================================ */
+@media (max-width: 768px) {
+    /* This hides the entire lower header on small screens */
+    .lower_Header {
+        display: none !important;
+    }
 }
